@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/">
+
+<head th:replace="~{fragments/head}">
+</head>
+
+<body>
+
+<div>
+    <nav th:replace="~{fragments/navbar}"></nav>
+</div>
+
+    <section id="login" >
+        <div class="container">
+            <h2>Login</h2>
+            <form>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control " id="username" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password">
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="stayLogged">
+                    <label class="form-check-label" for="stayLogged">Stay logged in</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </section>
+
+    <div>
+        <nav th:replace="~{fragments/footer}"></nav>
+    </div>
+</body>
+
+</html>

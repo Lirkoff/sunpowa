@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="~{fragments/head}">
+</head>
+
+<body>
+
+<div>
+    <nav th:replace="~{fragments/navbar}"></nav>
+</div>
+
+<!--    <section id="support">-->
+<!--        <div class="container">-->
+<!--            <h2>Support</h2>-->
+<!--            <p>This is the Support page content. Provide support information and contact details here.</p>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<div id="support" class="container">
+    <h2>Support</h2>
+    <p>
+        For any inquiries or assistance, feel free to contact us:
+    </p>
+
+    <h4>Address:</h4>
+    <p>
+        123 Solar Avenue,<br>
+        Cityville, State, Country<br>
+        ZIP Code: 12345
+    </p>
+
+    <h4>Telephone Numbers:</h4>
+    <p>
+        Customer Support: +1 123-456-7890<br>
+        Technical Support: +1 987-654-3210
+    </p>
+
+    <h4>Email:</h4>
+    <p>
+        General Inquiries: info@solarpowersystems.com
+    </p>
+
+    <h4>Viber Information:</h4>
+    <p>
+        Viber Support: +1 555-555-5555
+    </p>
+</div>
+
+<div>
+    <nav th:replace="~{fragments/footer}"></nav>
+</div>
+</body>
+
+</html>
