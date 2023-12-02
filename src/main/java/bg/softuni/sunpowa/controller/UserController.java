@@ -1,7 +1,39 @@
 package bg.softuni.sunpowa.controller;
 
-import org.springframework.stereotype.Component;
+import bg.softuni.sunpowa.model.dto.UserRegistrationDTO;
+import jakarta.validation.Valid;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-@Component
+@Controller
+@RequestMapping("/users")
 public class UserController {
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/register")
+    public String register() {
+        return "auth-register";
+    }
+
+
+    @PostMapping("/register")
+    public String register(UserRegistrationDTO userRegistrationDTO) {
+
+
+
+        return "auth-register";
+    }
+
+
+    @PostMapping("/logout")
+    public String logout() {
+        return "redirect:/";
+    }
 }

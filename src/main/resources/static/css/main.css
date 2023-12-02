@@ -126,19 +126,20 @@ body#support {
 }
 
 .container#support {
-    margin-top: 50px; /* Space above the content */
-    padding: 20px; /* Padding around the content */
+    margin-top: 50px;
+    padding: 20px;
 }
 
 h2#support, h4#support {
-    margin-top: 20px; /* Space between headings and paragraphs */
+    margin-top: 20px;
 }
 
 p#support {
-    margin-bottom: 15px; /* Space below each paragraph */
+    margin-bottom: 15px;
 }
 
 .form-control {
             height: 35px;
             font-size: 14px;
         }
+

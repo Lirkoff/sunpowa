@@ -12,40 +12,33 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/register")
-    public String register() {
-        return "register";
-    }
+
 
     @GetMapping("/about")
     public String about() {
         return "about";
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
-
-    @GetMapping("/products")
-    public String products() {
-        return "products";
-    }
-
-    @GetMapping("/products_registration")
-    public String productsRegistration() {
-        return "products-reg";
-    }
-
+//
+//    @GetMapping("/products")
+//    public String products() {
+//        return "products";
+//    }
+//
+//    @GetMapping("/products_registration")
+//    public String productsRegistration() {
+//        return "products-reg";
+//    }
+//
     @GetMapping("/support")
     public String support() {
         return "support";
     }
-
-    @GetMapping("/add_product")
-    public String addProduct() {
-        return "add-product";
-    }
+//
+//    @GetMapping("/add_product")
+//    public String addProduct() {
+//        return "add-product";
+//    }
 
 
 }
