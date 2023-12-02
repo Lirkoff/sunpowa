@@ -1,16 +1,20 @@
 package bg.softuni.sunpowa.controller;
 
 import bg.softuni.sunpowa.model.dto.UserRegistrationDTO;
-import jakarta.validation.Valid;
+import bg.softuni.sunpowa.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/users")
 public class UserController {
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/login")
     public String login() {
@@ -25,10 +29,10 @@ public class UserController {
 
     @PostMapping("/register")
     public String register(UserRegistrationDTO userRegistrationDTO) {
+        userService.registerUser(userRegistrationDTO);
 
 
-
-        return "auth-register";
+        return "redirect:/";
     }
 
 
