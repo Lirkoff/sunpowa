@@ -10,6 +10,17 @@
         <nav th:replace="~{fragments/navbar}"></nav>
     </div>
 
+    <div class="container-fluid">
+        <h5 class="text-center text-black mt-5">
+            Welcome to SunPowa,
+            <th:block sec:authorize="isAuthenticated()">
+                <th:block sec:authentication="name"></th:block>
+            </th:block>
+            <th:block sec:authorize="!isAuthenticated()" >
+                Anonymous!
+                </th:block>
+        </h5>
+    </div>
 
     <section class="call-to-action">
         <div class="container">

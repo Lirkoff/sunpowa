@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class UserEntity extends BaseEntity{
-        @Column
+        @Column(unique = true)
         private String email;
 
         @ManyToMany(fetch = FetchType.EAGER)
