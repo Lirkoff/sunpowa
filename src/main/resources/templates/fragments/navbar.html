@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<nav
+    <nav
         th:fragment="navbar"
         class="navbar navbar-expand-lg">
     <div class="container">
@@ -17,36 +17,40 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/}">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/about}">About Us</a>
+                    <a class="nav-link" href="/about">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/products}">Products</a>
+                    <a class="nav-link" href="/products/all">Products</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                    <a class="nav-link" href="/products_registration">Product Registration</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/products_registration}">Product Registration</a>
+                    <a class="nav-link" href="/support">Support</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/support}">Support</a>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link" href="/users/login">Login</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/users/login}">Login</a>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link" href="/users/register">Register</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/users/register}">Register</a>
-                </li>
-<!--                <li th:if="${@loggedUser.isLogged}">-->
-                <li>
-                    <form th:action="@{/users/logout}" th:method="POST">
-                        <input class="mybtn" type="submit" value="Logout" />
-                    </form>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <div class="form-inline my-2 my-lg-0 border px-3">
+                        <div class="logged-user">
+                            Welcome, <th:block sec:authentication="name"></th:block>!
+                        </div>
+                        <form th:method="post"
+                              th:action="@{/users/logout}">
+                            <input type="submit" class="btn btn-link" value="Logout"/>
+                        </form>
+                    </div>
                 </li>
             </ul>
         </div>
-    </div>
-</nav>
+    </nav>
 
 
 </body>

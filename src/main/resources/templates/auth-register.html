@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org">
 
 <head th:replace="~{fragments/head}">
 </head>
@@ -20,23 +20,38 @@
 
         <div class="form-group">
             <label for="firstName">First Name:</label>
-            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter first name">
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name">
+            <p class="errors alert alert-danger">
+                First name is required.
+            </p>
         </div>
         <div class="form-group">
             <label for="lastName">Last Name:</label>
-            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter last name">
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name">
+            <p class="errors alert alert-danger">
+                Last name is required.
+            </p>
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+            <p class="errors alert alert-danger">
+                Email is required.
+            </p>
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            <p class="errors alert alert-danger">
+                Password is required.
+            </p>
         </div>
         <div class="form-group">
             <label for="confirmPassword">Confirm Password:</label>
-            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm password">
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Password">
+            <p class="errors alert alert-danger">
+                Password confirmation is required.
+            </p>
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
     </form>
@@ -49,3 +64,5 @@
 </body>
 
 </html>
+
+
