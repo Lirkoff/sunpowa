@@ -2,6 +2,9 @@ package bg.softuni.sunpowa.controller;
 
 import bg.softuni.sunpowa.model.dto.UserRegistrationDTO;
 import bg.softuni.sunpowa.service.UserService;
+import bg.softuni.sunpowa.service.impl.SunpowaUserDetailsService;
+import jakarta.validation.Valid;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -4,9 +4,9 @@ spring:
     url: "jdbc:mysql://localhost:3307/sunpowa?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC"
     username: ${db_username:}
     password: ${db_password:}
-#  sql:
-#    init:
-#      mode: never
+  sql:
+    init:
+      mode: never
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:

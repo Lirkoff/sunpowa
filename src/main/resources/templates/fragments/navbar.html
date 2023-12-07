@@ -25,9 +25,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/products/all">Products</a>
                 </li>
-                <li class="nav-item" sec:authorize="hasRole('ADMIN')">
-                    <a class="nav-link" href="/products_registration">Product Registration</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/support">Support</a>
                 </li>
@@ -37,6 +35,43 @@
                 <li class="nav-item" sec:authorize="!isAuthenticated()">
                     <a class="nav-link" href="/users/register">Register</a>
                 </li>
+<!--                <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">-->
+<!--                    <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button"-->
+<!--                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                        Admin-->
+<!--                    </a>-->
+<!--                    <a class="nav-link" href="/" id="productRegistration" role="link"-->
+<!--                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="hasRole('ADMIN')">-->
+<!--                        Product Registration-->
+<!--                    </a>-->
+<!--                </li>-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light" sec:authorize="hasRole('ADMIN')">
+                    <div class="container">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavi">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Admin
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">Product Registration</a>
+                                        <a class="dropdown-item" href="#">Users</a>
+                                        <a class="dropdown-item" href="#">Reports</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Logout</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+
                 <li class="nav-item" sec:authorize="isAuthenticated()">
                     <div class="form-inline my-2 my-lg-0 border px-3">
                         <div class="logged-user">
