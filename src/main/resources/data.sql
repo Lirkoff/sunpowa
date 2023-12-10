@@ -14,3 +14,9 @@ insert into users_roles(`user_id`, `role_id`)
 VALUES
     (1, 1),
     (1, 2);
+
+INSERT INTO `brands` (`id`, `name`)
+VALUES
+    (1, 'Mitsubishi Electric'),
+    (2, 'Huawei'),
+    (3, 'LG');
