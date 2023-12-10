@@ -39,7 +39,7 @@ section {
     text-align: center;
 }
 
-section h2 {
+h2 {
     font-size: 36px;
     margin-bottom: 40px;
     color: #00b6ba;
@@ -138,8 +138,6 @@ p#support {
     margin-bottom: 15px;
 }
 
-.form-control {
-            height: 35px;
-            font-size: 14px;
-        }
+
+
 
