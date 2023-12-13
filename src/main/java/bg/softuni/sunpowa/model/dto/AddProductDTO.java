@@ -9,4 +9,8 @@ public record AddProductDTO(@NotEmpty @Size(min = 5, max = 512) String descripti
                             @Positive @NotNull Long brandId,
                             @NotEmpty String imageUrl,
                             @Positive @NotNull Integer price) {
+
+    public static AddProductDTO empty() {
+        return new AddProductDTO(null, null, null, null);
+    }
 }

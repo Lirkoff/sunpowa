@@ -24,6 +24,7 @@ public class SecurityConfiguration {
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/","/about","/support", "/users/login","/users/login-error","/users/register").permitAll()
                         .requestMatchers("/products/**").permitAll()
+                        .requestMatchers("product/{uuid}").permitAll()
                         .anyRequest().authenticated()
         ).formLogin(
                 formLogin -> {

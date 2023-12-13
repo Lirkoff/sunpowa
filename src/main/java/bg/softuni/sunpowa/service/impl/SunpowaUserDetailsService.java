@@ -2,7 +2,6 @@ package bg.softuni.sunpowa.service.impl;
 
 import bg.softuni.sunpowa.model.entity.UserEntity;
 import bg.softuni.sunpowa.model.entity.UserRolesEntity;
-import bg.softuni.sunpowa.model.enums.UserRoleEnum;
 import bg.softuni.sunpowa.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

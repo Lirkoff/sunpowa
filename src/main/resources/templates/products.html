@@ -13,18 +13,48 @@
 </div>
 
 
+<div class="container-fluid">
+    <h2 class="text-center">All products</h2>
 
 
-<section id="products">
-        <div class="container">
-            <h2>Products</h2>
-            <p>This is the Products page content. Add your products and details here.</p>
+    <div class="products row mx-auto d-flex flex-row justify-content-center">
+        <div th:each="product: ${products}"
+             th:object="${product}"
+             th:method="get"
+             class="product card col-sm-6 col-md-3  col-lg-2 m-1 p-0">
+            <div >
+                <img class="card-img-top" th:src="*{imageUrl}" alt="Solar image">
+            </div>
+
+            <div >
+                <span>Brand:</span>
+                <th:block th:text="*{brand}"> Brand</th:block>
+            </div>
+            <div>
+                <span>Model:</span>
+                <th:block th:text="*{model}"> Model</th:block>
+            </div>
+            <div>
+                <span>Price:</span>
+                <th:block th:text="*{price}"> 9999999</th:block>
+            </div>
+
+            <div>
+                <p class="card-title" th:text="*{description}"></p>
+            </div>
+
+            <button class="btn-primary" th:name="uuid" th:value="${product.id}">
+               <a th:href="@{/product/{productUUID}(productUUID=*{id})}"> BUY</a>
+            </button>
+
         </div>
-    </section>
 
-<div>
-    <nav th:replace="~{fragments/footer}"></nav>
-</div>
+    </div>
+
+
+    <div>
+        <nav th:replace="~{fragments/footer}"></nav>
+    </div>
 </body>
 
 </html>
