@@ -22,9 +22,11 @@ public class BrandServiceImpl implements BrandService {
     public List<BrandDTO> getAllBrands() {
         return brandRepository.getAllBrands().stream()
                 .map(brand -> new BrandDTO(
-                        brand.name(),
-                        brand.model()
+                        brand.getId(),
+                        brand.getName(),
+                        brand.getModel()
                 )).sorted(Comparator.comparing(BrandDTO::name))
                 .collect(Collectors.toList());
+
     }
 }

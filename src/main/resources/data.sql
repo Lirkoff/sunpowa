@@ -15,8 +15,8 @@ VALUES
     (1, 1),
     (1, 2);
 
-INSERT INTO `brands` (`id`, `name`)
+INSERT INTO `brands` (`id`, `name`, `model`)
 VALUES
-    (1, 'Mitsubishi Electric'),
-    (2, 'Huawei'),
-    (3, 'LG');
+    (1, 'Mitsubishi Electric', 'Air Power 1000'),
+    (2, 'Huawei', 'GtX800'),
+    (3, 'LG', 'Dynamo');

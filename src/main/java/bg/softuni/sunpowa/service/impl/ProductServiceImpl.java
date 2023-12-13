@@ -16,9 +16,9 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final BrandRepository brandRepository;
 
-    public ProductServiceImpl(ProductRepository productRepository, BrandRepository modelRepository) {
+    public ProductServiceImpl(ProductRepository productRepository, BrandRepository brandRepository) {
         this.productRepository = productRepository;
-        this.brandRepository = modelRepository;
+        this.brandRepository = brandRepository;
     }
 
     @Override

@@ -2,7 +2,6 @@ package bg.softuni.sunpowa.model.entity;
 
 import jakarta.persistence.*;
 
-import java.util.List;
 
 @Entity
 @Table(name="brands")
@@ -11,7 +10,9 @@ public class BrandEntity extends BaseEntity{
     private String name;
 
 
-    private List<String> model;
+    private String model;
+
+
 
     public String getName() {
         return this.name;
@@ -22,11 +23,11 @@ public class BrandEntity extends BaseEntity{
         return this;
     }
 
-    public List<String> getModel() {
+    public String getModel() {
         return this.model;
     }
 
-    public BrandEntity setModel(List<String> model) {
+    public BrandEntity setModel(String model) {
         this.model = model;
         return this;
     }
