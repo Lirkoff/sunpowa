@@ -15,4 +15,6 @@ public interface ProductService {
     Optional<ProductDetailDTO> getProductDetail(UUID productUUID);
 
     Page<ProductDetailDTO> getAllProducts(Pageable pageable);
+
+    void deleteProduct(UUID uuid);
 }

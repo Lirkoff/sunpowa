@@ -7,6 +7,7 @@ import bg.softuni.sunpowa.model.entity.ProductEntity;
 import bg.softuni.sunpowa.repository.BrandRepository;
 import bg.softuni.sunpowa.repository.ProductRepository;
 import bg.softuni.sunpowa.service.ProductService;
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -49,6 +50,12 @@ public class ProductServiceImpl implements ProductService {
         return productRepository
                 .findAll(pageable)
                 .map(this::mapAsDetails);
+    }
+
+    @Override
+    @Transactional
+    public void deleteProduct(UUID uuid) {
+        productRepository.deleteByUuid(uuid);
     }
 
     private ProductDetailDTO mapAsDetails(ProductEntity productEntity) {

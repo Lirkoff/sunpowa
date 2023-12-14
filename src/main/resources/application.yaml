@@ -16,6 +16,10 @@ spring:
   sql:
     init:
       mode: never
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
   thymeleaf: # Thymeleaf
     cache: false
     mode: HTML

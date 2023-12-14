@@ -12,33 +12,32 @@
     <div class="form-container">
         <h2 class="text-center mb-4">Add Product</h2>
         <form th:method="POST"
-              th:action="@{/product/add}"
-              th:object="${addProductDTO}">
+              th:action="@{/product/add}">
             <div class="form-group">
                 <label for="brandId">Brand:</label>
                 <select class="form-control"
                         id="brandId"
-                        th:name="brandId">
+                        name="brandId">
                     <option
                         th:each="brand: ${brands}"
                         th:label="${brand.name() + ' ' + brand.model()}"
                         th:value="${brand.id}"
-                        th:selected="*{brandId} == ${brand.id}">
+                        th:selected="brandId == ${brand.id}">
                         Select Brand
                     </option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="description">Description:</label>
-                <textarea class="form-control" id="description" th:field="*{description}"  rows="3" placeholder="Enter description"></textarea>
+                <textarea class="form-control" id="description" name="description"  rows="3" placeholder="Enter description"></textarea>
             </div>
             <div class="form-group">
                 <label for="imageUrl">Image URL:</label>
-                <input type="text" class="form-control" id="imageUrl" th:field="*{imageUrl}" placeholder="Enter image URL">
+                <input type="text" class="form-control" id="imageUrl" name="imageUrl" placeholder="Enter image URL">
             </div>
             <div class="form-group">
                 <label for="price">Price:</label>
-                <input type="number" class="form-control" id="price" th:field="*{price}" placeholder="Enter price">
+                <input type="number" class="form-control" id="price" name="price" placeholder="Enter price">
             </div>
             <button type="submit" class="btn btn-primary btn-block">Add</button>
         </form>
