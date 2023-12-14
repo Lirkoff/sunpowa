@@ -89,7 +89,6 @@ footer {
     bottom:0px;
 
 }
-
 footer p {
     margin-bottom: 0;
 }
@@ -136,6 +135,45 @@ h2#support, h4#support {
 
 p#support {
     margin-bottom: 15px;
+}
+
+
+/* Set the height of the carousel */
+.carousel {
+    max-height: 400px;
+    max-width: 800px;
+}
+
+.carousel-item {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-item img {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+
+
+/* Hide carousel caption on small devices */
+.carousel-caption {
+    display: none;
+}
+
+/* Show carousel caption on medium and larger devices */
+@media (min-width: 768px) {
+    .carousel-caption {
+        display: block;
+        position: absolute;
+        bottom: 20px;
+        left: 50px;
+        right: 50px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+    }
 }
 
 
