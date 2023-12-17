@@ -2,12 +2,16 @@ package bg.softuni.sunpowa.controller;
 
 import bg.softuni.sunpowa.model.dto.UserRegistrationDTO;
 import bg.softuni.sunpowa.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/users")
@@ -25,8 +29,7 @@ public class UserController {
 
 
     @PostMapping("/login-error")
-    public String onFailure(@ModelAttribute("email") String email, Model model) {
-        model.addAttribute("email", email);
+    public String onFailure(Model model) {
         model.addAttribute("bad_credentials", true);
 
         return "auth-login";
@@ -34,13 +37,22 @@ public class UserController {
 
 
     @GetMapping("/register")
-    public String register() {
-        return "auth-register";
+    public ModelAndView register(@ModelAttribute("userRegistrationDTO") UserRegistrationDTO userRegistrationDTO) {
+
+        return new ModelAndView("auth-register");
     }
 
 
     @PostMapping("/register")
-    public String register(UserRegistrationDTO userRegistrationDTO) {
+    public String register(@Valid UserRegistrationDTO userRegistrationDTO, BindingResult bindingResult,
+                           RedirectAttributes rAtt) {
+
+        if (bindingResult.hasErrors()){
+            rAtt.addAttribute("userRegistrationDTO",userRegistrationDTO);
+            rAtt.addFlashAttribute("org.springframework.validation.BindingResult.userRegistrationDTO", bindingResult);
+            return "redirect:/users/register";
+        }
+
         userService.registerUser(userRegistrationDTO);
 
 
@@ -53,3 +65,4 @@ public class UserController {
         return "redirect:/";
     }
 }
+

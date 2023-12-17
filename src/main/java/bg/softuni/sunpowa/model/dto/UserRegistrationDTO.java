@@ -21,4 +21,8 @@ public record UserRegistrationDTO(@NotEmpty String firstName,
     public String fullName() {
         return firstName + " " + lastName;
     }
+
+    public static UserRegistrationDTO empty() {
+        return new UserRegistrationDTO(null,null,null,null,null);
+    }
 }

@@ -20,6 +20,9 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
+sunpowa:
+#  default.admin.pass: ${DEFAULT_ADMIN_PASS:}
+  remember.me.key: ${REMEMBER_ME_KEY:test}
   thymeleaf: # Thymeleaf
     cache: false
     mode: HTML

@@ -3,6 +3,7 @@ package bg.softuni.sunpowa.config;
 
 import bg.softuni.sunpowa.repository.UserRepository;
 import bg.softuni.sunpowa.service.impl.SunpowaUserDetailsService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,12 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfiguration {
+
+    private final String rememberMeKey;
+
+    public SecurityConfiguration(@Value("${sunpowa.remember.me.key}") String rememberMeKey) {
+        this.rememberMeKey = rememberMeKey;
+    }
 
 
     @Bean
@@ -42,7 +49,13 @@ public class SecurityConfiguration {
                             .logoutSuccessUrl("/")
                             .invalidateHttpSession(true);
                 }
-        ).build();
+        ).rememberMe(
+                rememberMe ->
+                        rememberMe
+                                .key(rememberMeKey)
+                                .rememberMeParameter("rememberme")
+                                .rememberMeCookieName("rememberme")
+                ).build();
     }
 
     @Bean
