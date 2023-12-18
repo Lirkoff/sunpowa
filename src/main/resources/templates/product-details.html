@@ -38,7 +38,7 @@
             <div class="card-body" sec:authorize="hasRole('ADMIN')">
                 <form th:method="delete"
                       th:action="@{/product/{productUUID}(productUUID=*{id})}">
-                    <input type="submit" value="Delete" class="link card-link"/>
+                    <input type="submit" value="Delete" class="link card-link btn-primary"/>
                 </form>
             </div>
 
