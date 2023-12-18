@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:sec="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="~{fragments/head}">
 </head>
@@ -20,8 +20,8 @@
                     <div class="card-body p-5">
                         <h2 class="text-align-center">Register</h2>
 
-                        <form th:action="@{/users/register}"
-                              th:method="post"
+                        <form th:method="post"
+                              th:action="@{/users/register}"
                               th:object="${userRegistrationDTO}">
 
                             <div class="form-outline mb-4">

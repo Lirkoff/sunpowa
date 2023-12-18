@@ -54,11 +54,6 @@ public class UserRoleController {
 
 
 
-
-        System.out.println("Successfully added admin " + user.getEmail());
-
-        user.getRoles().forEach(r-> System.out.println(r.getRole().name()));
-
         return "redirect:/roles/management";
     }
 

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -37,18 +36,22 @@ public class UserController {
 
 
     @GetMapping("/register")
-    public ModelAndView register(@ModelAttribute("userRegistrationDTO") UserRegistrationDTO userRegistrationDTO) {
+    public String register(Model model) {
 
-        return new ModelAndView("auth-register");
+        if (!model.containsAttribute("userRegistrationDTO")) {
+            model.addAttribute("userRegistrationDTO", UserRegistrationDTO.empty());
+        }
+
+        return "auth-register";
     }
 
 
     @PostMapping("/register")
-    public String register(@Valid UserRegistrationDTO userRegistrationDTO, BindingResult bindingResult,
+    public String register(@Valid @ModelAttribute("userRegistrationDTO") UserRegistrationDTO userRegistrationDTO, BindingResult bindingResult,
                            RedirectAttributes rAtt) {
 
         if (bindingResult.hasErrors()){
-            rAtt.addAttribute("userRegistrationDTO",userRegistrationDTO);
+            rAtt.addFlashAttribute("userRegistrationDTO",userRegistrationDTO);
             rAtt.addFlashAttribute("org.springframework.validation.BindingResult.userRegistrationDTO", bindingResult);
             return "redirect:/users/register";
         }
