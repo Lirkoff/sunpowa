@@ -9,26 +9,20 @@
 
 <h1>User Role Management</h1>
 
-<!-- Form for adding user role -->
-<form action="/addRole" method="post">
+
+<form th:method="POST" th:action="@{/roles/management/addAdmin}">
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+    <input type="text" id="username" name="username">
 
-    <label for="role">Role:</label>
-    <input type="text" id="role" name="role" required>
-
-    <button type="submit">Add Role</button>
+    <button type="submit">Make Admin</button>
 </form>
 
-<!-- Form for removing user role -->
-<form action="/removeRole" method="post">
+
+<form th:method="POST" th:action="@{/roles/management/removeAdmin}">
     <label for="usernameRemove">Username:</label>
-    <input type="text" id="usernameRemove" name="usernameRemove" required>
+    <input type="text" id="usernameRemove" name="usernameRemove" th:field="${userRoleManagementDTO.username}">
 
-    <label for="roleRemove">Role:</label>
-    <input type="text" id="roleRemove" name="roleRemove" required>
-
-    <button type="submit">Remove Role</button>
+    <button type="submit">Remove Admin</button>
 </form>
 
 

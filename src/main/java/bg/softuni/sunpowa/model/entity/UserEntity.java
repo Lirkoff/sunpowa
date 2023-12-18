@@ -17,7 +17,6 @@ public class UserEntity extends BaseEntity{
                 inverseJoinColumns = @JoinColumn(name = "role_id"))
         private List<UserRolesEntity> roles;
 
-
         private String password;
 
 
@@ -82,7 +81,5 @@ public class UserEntity extends BaseEntity{
                 this.active = active;
                 return this;
         }
-
-
 
 }
