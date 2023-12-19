@@ -43,12 +43,12 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/product/add">Add product</a>
-                        <a class="dropdown-item" href="/roles/management">User role management</a>
-                        <a class="dropdown-item" href="/profile/edit_profile">Edit profile</a>
+                        <a class="dropdown-item" sec:authorize="hasRole('MASTER')" href="/roles/management">User role management</a>
+<!--                        <a class="dropdown-item" href="/profile/edit_profile">Edit profile</a>-->
                     </div>
                 </li>
 
-                <li class="nav-item dropdown" sec:authorize="isAuthenticated() && !hasRole('ADMIN')">
+                <li class="nav-item dropdown" sec:authorize="hasRole('USER')">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Profile
@@ -64,7 +64,6 @@
                     <div class="form-inline my-2 my-lg-0 border px-3">
                         <div class="logged-user">
                             <th:block sec:authentication="name"></th:block>
-                            !
                         </div>
                         <form th:method="post"
                               th:action="@{/users/logout}">

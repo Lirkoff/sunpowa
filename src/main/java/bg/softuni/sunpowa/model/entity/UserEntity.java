@@ -2,7 +2,9 @@ package bg.softuni.sunpowa.model.entity;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -15,7 +17,7 @@ public class UserEntity extends BaseEntity{
                 name = "users_roles",
                 joinColumns = @JoinColumn(name = "user_id"),
                 inverseJoinColumns = @JoinColumn(name = "role_id"))
-        private List<UserRolesEntity> roles;
+        private Set<UserRolesEntity> roles;
 
         private String password;
 
@@ -36,12 +38,13 @@ public class UserEntity extends BaseEntity{
                 return this;
         }
 
-        public List<UserRolesEntity> getRoles() {
+        public Set<UserRolesEntity> getRoles() {
                 return this.roles;
         }
 
-        public UserEntity setRoles(List<UserRolesEntity> roles) {
-                this.roles = roles;
+        public UserEntity setRoles(UserRolesEntity role) {
+                this.roles = new HashSet<>();
+                this.roles.add(role);
                 return this;
         }
 

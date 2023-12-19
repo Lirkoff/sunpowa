@@ -5,14 +5,15 @@ values
 
 insert into roles (id, role)
 VALUES
-    (1, 'ADMIN'),
-    (2, 'USER');
+    (1, 'MASTER'),
+    (2, 'ADMIN'),
+    (3, 'USER');
 
 insert into users_roles (user_id, role_id)
 VALUES
     (1, 1),
-    (1, 2);
-
+    (1, 2),
+    (1, 3);
 INSERT INTO brands (id, name, model)
 VALUES
     (1, 'Mitsubishi Electric', 'Air Power 1000'),
