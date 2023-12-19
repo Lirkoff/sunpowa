@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:th="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:replace="~{fragments/head}">
 </head>
@@ -40,11 +40,11 @@
             </div>
 
             <div>
-                <p class="card-title" th:text="*{description}"></p>
+                <p  class="card-title" th:text="*{description}"></p>
             </div>
 
-            <button class="btn-primary" th:name="uuid" th:value="${product.id}">
-               <a th:href="@{/product/{productUUID}(productUUID=*{id})}"> Details</a>
+            <button class="btn-primary" id="details" th:name="uuid" th:value="${product.id}">
+               <a  th:href="@{/product/{productUUID}(productUUID=*{id})}"> Details</a>
             </button>
 
 

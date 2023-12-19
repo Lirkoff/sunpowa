@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head th:replace="~{fragments/head}">
 </head>
 <body>
 
 <div>
-    <div>
-        <nav th:replace="~{fragments/navbar}"></nav>
-    </div>
+    <nav th:replace="~{fragments/navbar}"></nav>
+</div>
 
+<div sec:authorize="!hasRole('ADMIN')">
     <h2>Bought Products</h2>
 
     <ul>

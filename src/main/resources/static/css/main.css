@@ -175,6 +175,19 @@ p#support {
     }
 }
 
+#details {
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       width: 100%;
+       text-align: center;
+       padding: 10px;
+}
 
+#error {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 
