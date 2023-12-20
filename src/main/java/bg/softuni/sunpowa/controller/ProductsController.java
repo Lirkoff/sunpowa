@@ -21,7 +21,7 @@ public class ProductsController {
     }
 
     @GetMapping("/all")
-    public String all(Model model, @PageableDefault(size = 3, sort = "uuid")Pageable pageable) {
+    public String all(Model model, @PageableDefault(size = 6, sort = "uuid") Pageable pageable) {
         Page<ProductDetailDTO> allProducts = productService.getAllProducts(pageable);
 
         model.addAttribute("products", allProducts);
